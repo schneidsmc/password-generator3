@@ -1,43 +1,47 @@
 // Assignment Code
 function generatePassword(){
+    passwordLengthYY();
+    userPrompt();
+    createPassword();
+}
 
 var lowerCaseLet = 'abcdefghijklmnopqrstuvwxyz'.split('');
-console.log(lowerCaseLet);
-
 var upperCaseLet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
-console.log(upperCaseLet);
-
 var symbolsLet = '~!@#$%^&*()_+=-'.split('');
-console.log(symbolsLet);
-
 var numberLet = '1234567890'.split('');
-console.log(numberLet);
-}
+
+// Create Global Scope
+let userPrompt;
+let passwordLength = true;
+let passwordArray = [];
+
 // create a password variable that is an empty string
 var password = '';
+
 // prompt user for password length and store in a variable
-
-var passwordLength = Number(prompt('How many characters would you like in your password?'));
-    if (typeof(passwordLength != 'number')) {
-        alert("You must type a number!")
-        passwordLength = Number(prompt('How many characters would you like in your password?'));
+function passwordLengthYY() {
+    if (passwordLength) {
+        userinput = prompt('How long would you like your password to be?');
     }
-    // if (passwordLength < 8 && (passwordLength > 128)) {
-    //     alert("Gotta be between 8 and 126")
-    //     passwordLength = Number(prompt('How many characters would you like in your password?'));
-    // }
-
-var addlowerCase = (prompt('Do you want to include Lower Case letters?'));
-    if (typeof(passwordLength != 'letter')) {
-        alert("you must type a number!")
-        addlowerCase = (prompt('Do you want to include Lower Case letters?'));
+    if (userinput < 7 || userinput === -1){
+        alert('You have to choose a value between 8-128');
     }
+    if (userinput > 128) {
+        alert('You have to choose a value between 8-128');
+    }
+    if (isNaN(userinput )){
+        alert('You have to choose a number between 8-128')
+    }
+}
 
 
-// prompt user for if they want lowercase and store in a boolean
-// prompt user for if they want uppercase and store in a boolean
-// prompt user for if they want numbers and store in a boolean
-// prompt user for it they want symbols and store in a boolean
+
+
+// One function for variable Prompts?
+    // prompt user for if they want lowercase and store in a boolean
+    // prompt user for if they want uppercase and store in a boolean
+    // prompt user for if they want numbers and store in a boolean
+    // prompt user for it they want symbols and store in a boolean
 
 // Add together any arrays that they wanted to include based on the true/fasle values of the boolean into its own array
     // If lowercase is true then add lowercase array to combined array
