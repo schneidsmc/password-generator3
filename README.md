@@ -31,7 +31,18 @@ THEN the password is either displayed in an alert or written to the page
 
 ## JavaScript 
 
+- JavaScript functions were written to complete this task. An overall function of generatePassword had functions built into it to ensure the userinput had the correct qualifications. This made sure number entered was within the parameter if 8-128. Then the user was prompted if they would like lowercase letters, uppercase letters, symbols and/or numbers. 
+- These prompted characters were stored in variables outside of the function to give it complete global scope. 
+- Once confrimed with the user, the corresponding characters were pushed to an empty array. 
+- This array, passwaordArray, was then randomized with a if loop within the userinput number for length. 
+- This created a bug because the pushed characters were then stored in 4 separate arrays within passwordArray. With some research, the function flat was used to make the entire array flat and without separation. 
+- Once this was complete, the last function of writePassword was able to be carried out to return a random password through a document query within the passwordText.value. 
+
+
 ## Installation
+
+- Clone this repository
+* $ git clone git@github.com:schneidsmc/password-generator3.git
 
 ## Usage
 
