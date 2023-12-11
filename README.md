@@ -35,6 +35,9 @@ THEN the password is either displayed in an alert or written to the page
 
 ## Usage
 
+-Deployed URL
+* https://schneidsmc.github.io/password-generator3/
+
 ## Author
 
 * [schneidsmc](https://github.com/schneidsmc)
