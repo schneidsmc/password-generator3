@@ -2,7 +2,7 @@
 
 function generatePassword(){
     passwordLengthYY();
-    checkLength();
+    // checkLength();
     userPrompt();
     createPassword();
 }
@@ -23,29 +23,36 @@ var password = '';
 
 // prompt user for password length and store in a variable
 function passwordLengthYY() {
-    
-    if (!passwordLength) {
+    do {
         userinput = prompt('How long would you like your password to be?');
+        if (userinput === null) {
+            return;
+        }
+        if (userinput < 7 || userinput === -1 || userinput > 128 || isNaN(userinput) ){
+                alert('You have to choose a value between 8-128');
+        }
+    } while (userinput < 8 || userinput > 128 || isNaN(userinput));
+    console.log(userinput);
+    return userinput;
     }
-    if (userinput < 7 || userinput === -1 || userinput > 128 || isNaN(userinput) ){
-        alert('You have to choose a value between 8-128');
-    }
-    if ((!userinput)) { 
-        alert('You have to choose a number between 8-128!');
-        location.reload(false);
-    }
-    console.log(userinput)
-    return userinput
-}
+    // if (!passwordLength) {
+    //     userinput = prompt('How long would you like your password to be?');
+    // }
+    // if (userinput < 7 || userinput === -1 || userinput > 128 || isNaN(userinput) ){
+    //     alert('You have to choose a value between 8-128');
+    //     location.reload(true);
+    // }
+    // console.log(userinput)
+    // return userinput
 
-function checkLength(){
-    if ((!userinput)) { 
-        alert('You have to choose a number between 8-128!');
-        location.reload(true);
-    }
-    console.log(userinput)
 
-}
+// function checkLength(){
+//     if ((userinput)) { 
+//         alert('You have to choose a number between 8-128!');
+//         window.location.reload(true);
+//     }
+//     console.log(userinput)
+// }
 
 
 // One function for variable Prompts?
@@ -74,8 +81,7 @@ function createPassword() {
         let randomIndex = Math.floor(Math.random() * flatPassword.length);
         let randomChar = flatPassword[randomIndex];
      password += randomChar;
-}
-console.log(password)
+} console.log(password)
 return password
 }
 
@@ -84,11 +90,10 @@ var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword(password);
+  var password = generatePassword();
   var passwordText = document.querySelector("#password");
-
   passwordText.value = createPassword();
-console.log(password)
+
 }
 
 // Add event listener to generate button
