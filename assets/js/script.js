@@ -1,7 +1,7 @@
 // Assignment Code
 
 function generatePassword(){
-    passwordLengthYY();
+   return passwordLengthYY();
 }
 // Global Scope Variables
 
@@ -20,7 +20,7 @@ function passwordLengthYY() {
             alert('You have to choose a value between 8-128');
             // return;
     } else {
-        userPrompt();
+        return userPrompt();
     }
 }
 
@@ -41,9 +41,9 @@ function userPrompt() {
     }
 
     flatPassword = passwordArray.flat();
-    createPassword();
+    
     console.log('userPrompt '+flatPassword)
-    return flatPassword
+    return createPassword();
 }
 
 function createPassword() {
@@ -57,7 +57,6 @@ function createPassword() {
             password += randomChar;
         } 
     }console.log('createPassword password '+ password);
-    writePassword(password);
     return password
 }
 
@@ -65,16 +64,17 @@ function createPassword() {
 var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
-function writePassword(password) {
+function writePassword() {
+    var password = generatePassword();
   var passwordText = document.querySelector("#password");
-  if (createPassword() === undefined || createPassword() === '') {
-      passwordText.value = ''; 
-    } else { 
+//   if (generatePassword() === undefined || generatePassword() === '') {
+//       passwordText.value = ''; 
+//     } else { 
       passwordText.value = password;
   }
-}
+
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", generatePassword);
+generateBtn.addEventListener("click", writePassword);
 
 
