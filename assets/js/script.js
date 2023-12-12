@@ -57,6 +57,7 @@ function createPassword() {
             password += randomChar;
         } 
     }console.log('createPassword password '+ password);
+    writePassword(password);
     return password
 }
 
@@ -64,17 +65,16 @@ function createPassword() {
 var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
+function writePassword(password) {
   var passwordText = document.querySelector("#password");
   if (createPassword() === undefined || createPassword() === '') {
       passwordText.value = ''; 
     } else { 
-      passwordText.value = createPassword();
+      passwordText.value = password;
   }
 }
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+generateBtn.addEventListener("click", generatePassword);
 
 
